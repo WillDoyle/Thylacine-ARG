@@ -1,5 +1,27 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+h1{
+	font-family: 'Creepster', cursive;
+
+}
+body{
+font-family: 'Noto Serif', serif;
+}
+
+.landing-wrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
 .image-container {
 	display: flex;
+	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
