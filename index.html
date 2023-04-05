@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Noto+Serif:ital,wght@0,400;1,400;1,700&display=swap');
 	  </style>
-	<title>Image Container</title>
+	<title>tHylacine.</title>
+  <meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="style.css">
     
 </head>
 <body>
-	<div class="dot-matrix">
-	
+  <script src="./sketch.js"></script>
+
 			<header>
+				<div id="sketch-container">
+				
 			<h1>The Thylacine</h1>
 			</header>
 
@@ -52,53 +56,8 @@
 				<img src="image3.jpg" alt="Image 3">
 			</div>
 
-	</div>
+		</div>
 
-	<script src="script.js"></script>
-</body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-const images = document.querySelectorAll('.image-container img');
-
-    images.forEach(img => {
-        img.addEventListener('click', () => {
-            img.classList.toggle('selected');
-        });
-    });
 	
-	const dots = document.querySelectorAll('.dot');
-
-window.addEventListener('mousemove', e => {
-	dots.forEach(dot => {
-		const dx = e.clientX - dot.offsetLeft - dot.clientWidth / 2;
-		const dy = e.clientY - dot.offsetTop - dot.clientHeight / 2;
-		const dist = Math.sqrt(dx * dx + dy * dy);
-		const scale = Math.min(1 / (dist / 50), 2);
-		const x = dx * scale;
-		const y = dy * scale;
-		dot.style.transform = `translate(${x}px, ${y}px)`;
-	});
-});
-
-const dotMatrix = document.querySelector('.dot-matrix');
-for (let i = 0; i < 150; i++) {
-	const dot = document.createElement('div');
-	dot.classList.add('dot');
-	dotMatrix.appendChild(dot);
-}
-
-
-	</script>
+</body>
 </html>

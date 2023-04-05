@@ -4,6 +4,9 @@
 	padding: 0;
 	/*background-color: #00111C;*/
 }
+canvas {
+	display: block;
+}
 
 h1{
 
@@ -13,7 +16,7 @@ h1{
 }
 body{
 	font-family: 'Noto Serif', serif;
-	background-image: url('../Thylacine-ARG/images/bg.gif');
+	/*background-image: url('../Thylacine-ARG/images/bg.gif');*/
 	background-size: cover;
 
 }
@@ -55,6 +58,10 @@ body{
 	align-items: center;
 	height: 100vh;
 	
+}
+
+#sketch-container{
+	height: 10px;
 }
 
 
