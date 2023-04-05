@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Container</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    
+</head>
+<body>
+	<div class="image-container">
+		<img src="images/posters-abstract-unusual-3d-pattern-black-eye-figure.png" alt="Image 1">
+		<img src="image2.jpg" alt="Image 2">
+		<img src="image3.jpg" alt="Image 3">
+		<img src="image4.jpg" alt="Image 4">
+		<img src="image5.jpg" alt="Image 5">
+	</div>
+	<script src="script.js"></script>
+</body>
+<script>
+const images = document.querySelectorAll('.image-container img');
+
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            img.classList.toggle('selected');
+        });
+    });</script>
+</html>
