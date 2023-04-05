@@ -45,6 +45,7 @@ body{
 }
 
 .dot-matrix {
+
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -53,19 +54,20 @@ body{
 	background-color: black;
 }
 
+.dot-matrix:hover {
+	animation: pulse 1s ease-in-out infinite alternate;
+}
+
 .dot {
-	width: 1px;
-	height: 1px;
+	z-index: -1;
+	width: 3px;
+	height: 3px;
 	border-radius: 50%;
 	background-color: white;
-	animation: pulse 1s ease-in-out infinite alternate;
-	margin: 5px;
+	margin: 10px;
 }
 
 
-.dot:hover {
-	animation: pulse 1s ease-in-out infinite alternate;
-  }
   
   @keyframes pulse {
 	from {
