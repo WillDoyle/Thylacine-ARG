@@ -20,9 +20,9 @@ body{
 
 .landing-wrapper{
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
+	width: 100%;
 	padding: 2rem;
 
 }
@@ -34,14 +34,43 @@ body{
 	align-items: center;
 }
 
+.img-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.hero {
+	width:25%;
+}
+
+.img-box p{
+	
+}
+
 .image-container img {
-	width: 300px;
-	height: 200px;
+	width: 100px;
+	height: 100px;
 	margin: 10px;
 	object-fit: cover;
 	cursor: pointer;
 	transition: transform 0.3s ease-in-out;
 }
+
+.sep {
+	height: 38px;
+	width: 100%;
+	background-image: url('../Thylacine-ARG/images/sep1.png');
+}
+
+
+
+
+
+
+
 
 .image-container img:hover {
 	transform: scale(1.1);
