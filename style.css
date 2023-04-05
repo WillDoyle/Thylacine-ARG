@@ -6,7 +6,6 @@
 }
 
 h1{
-
 	font-family: 'Creepster', cursive;
 	color: rgb(241, 91, 91);
 	font-size: 5rem;
@@ -16,6 +15,12 @@ body{
 	background-image: url('../Thylacine-ARG/images/bg.gif');
 	background-size: cover;
 
+}
+p,a {
+	color: white;
+	font-family: 'Parisienne', cursive;
+	font-size: 1.5em;
+	text-align: center;
 }
 
 .landing-wrapper{
@@ -39,15 +44,16 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	text-align: center;
-}
-
-.hero {
 	width:25%;
 }
 
-.img-box p{
-	
+.hero {
+	width:100%;
+}
+
+.horizontal {
+	flex-direction: row;
+	justify-content: center;
 }
 
 .image-container img {
@@ -64,13 +70,6 @@ body{
 	width: 100%;
 	background-image: url('../Thylacine-ARG/images/sep1.png');
 }
-
-
-
-
-
-
-
 
 .image-container img:hover {
 	transform: scale(1.1);
