@@ -8,7 +8,8 @@ function setup() {
 
   canvas.parent('sketch-container');
   noStroke();
-  fill(0);
+ fill(255, 0, 40, 255)
+
   
   // Create the grid of dots
   for (let i = 0; i < gridSize; i++) {
@@ -21,7 +22,8 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  clear();
+   /*remove this to create insane effect*/
   
   for (let i = 0; i < dots.length; i++) {
     let distance = dist(mouseX, mouseY, dots[i].x, dots[i].y);

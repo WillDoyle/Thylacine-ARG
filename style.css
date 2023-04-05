@@ -9,14 +9,18 @@ canvas {
 }
 
 h1{
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	font-family: 'Creepster', cursive;
 	color: rgb(241, 91, 91);
 	font-size: 5rem;
 }
 body{
 	font-family: 'Noto Serif', serif;
-	/*background-image: url('../Thylacine-ARG/images/bg.gif');*/
+	background-image: url('../Thylacine-ARG/images/bg.gif');
 	background-size: cover;
+	
 
 }
 p,a {
@@ -65,10 +69,11 @@ p,a {
 	margin: 10px;
 	object-fit: cover;
 	cursor: pointer;
-	transition: transform 0.3s ease-in-out;
+	transition: transform 0.1s ease-in-out;
 }
 
 .sep {
+	z-index: 3;
 	height: 38px;
 	width: 100%;
 	background-image: url('../Thylacine-ARG/images/sep1.png');
@@ -89,7 +94,7 @@ p,a {
 }
 
 #sketch-container{
-	height: 10px;
+	height: 5px;
 }
 
 
