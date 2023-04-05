@@ -13,9 +13,9 @@ h1{
 }
 body{
 	font-family: 'Noto Serif', serif;
-	overflow-x: hidden;
-	background-color: #00111C;
-	
+	background-image: url('../Thylacine-ARG/images/bg.gif');
+	background-size: cover;
+
 }
 
 .landing-wrapper{
