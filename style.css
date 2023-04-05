@@ -20,6 +20,8 @@ body{
 	font-family: 'Noto Serif', serif;
 	background-image: url('../Thylacine-ARG/images/bg.gif');
 	background-size: cover;
+	overflow-x: hidden;
+	overflow-y: hidden;
 	
 
 }
