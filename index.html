@@ -8,9 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
     
 </head>
-<body>
+<body class="dot-matrix">
+
 	<div class="landing-wrapper">
-	<h1>The Thylacine Awaits</h1>
+	<h1>The Thylacine</h1>
 	<div class="image-container">
 		<img src="images/posters-abstract-unusual-3d-pattern-black-eye-figure.png" alt="Image 1">
 		<img src="image2.jpg" alt="Image 2">
@@ -19,6 +20,7 @@
 		<img src="image5.jpg" alt="Image 5">
 	</div>
 </div>
+
 	<script src="script.js"></script>
 </body>
 <script>
@@ -28,5 +30,29 @@ const images = document.querySelectorAll('.image-container img');
         img.addEventListener('click', () => {
             img.classList.toggle('selected');
         });
-    });</script>
+    });
+	
+	const dots = document.querySelectorAll('.dot');
+
+window.addEventListener('mousemove', e => {
+	dots.forEach(dot => {
+		const dx = e.clientX - dot.offsetLeft - dot.clientWidth / 2;
+		const dy = e.clientY - dot.offsetTop - dot.clientHeight / 2;
+		const dist = Math.sqrt(dx * dx + dy * dy);
+		const scale = Math.min(1 / (dist / 50), 2);
+		const x = dx * scale;
+		const y = dy * scale;
+		dot.style.transform = `translate(${x}px, ${y}px)`;
+	});
+});
+
+const dotMatrix = document.querySelector('.dot-matrix');
+for (let i = 0; i < 150; i++) {
+	const dot = document.createElement('div');
+	dot.classList.add('dot');
+	dotMatrix.appendChild(dot);
+}
+
+
+	</script>
 </html>
