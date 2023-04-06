@@ -131,11 +131,7 @@ header canvas {
 	z-index: 3;
 	height: 38px;
 	width: 100%;
-<<<<<<< HEAD
 	background-image: url('images/sep1.png');
-=======
-	background-image: url('/images/sep1.png');
->>>>>>> bedc70bc0320c02d2730dc8ec00bddc60ee8020b
 }
 
 .image-container img:hover {
