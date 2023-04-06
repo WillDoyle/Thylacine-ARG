@@ -1,7 +1,3 @@
-//DXB211 Creative codeing AS1: Task 2, Recombination effects
-//Alex Ward n10753010
-//
-//This sketch is intended to be a 'horror' game using the get() function to create a flashlight to see ghosts, aesthetically the game is in a pixelated format. The code itselfis adapted from the tutorial 4 drawcell() function, getting the pixels from the ghost and only displaying them if they're in the radius of the flashlight - it also makes all pixels outside of the flashlight black to emulate darkness. To play the game, click on the ghosts to take photos of them. THe code works by calulating the distance between the mouse and the origin of the ghost (which has been offsetted). 
 
 //WARNING: i think the frames may be bad on laptops
 //images and font
@@ -10,7 +6,7 @@ let ghost;
 let bg;
 let thylacine;
 //radius
-let r = 260;
+let r = 300;
 //ghost location
 var randomX = 250;
 var randomY = 100;
@@ -23,10 +19,10 @@ let flash = "black";
 var score = 0;
 //preloading images and font
 function preload() {
-  font = loadFont("data/minecraft_font.ttf")
-  bg = loadImage("data/forest2.png");
-  ghost = loadImage("data/capthy.png");
-  thylacine = loadImage("data/thylacine.png");
+  font = loadFont("images/minecraft_font.ttf")
+  bg = loadImage("images/thybg.gif");
+  ghost = loadImage("images/capthy.png");
+  thylacine = loadImage("images/thylacine.png");
 }
 
 function mouseClicked() {
@@ -36,7 +32,7 @@ function mouseClicked() {
   //rect(bg.width,bg.height,bg.width,bg.height);
   //gets distance from the middle of ghost, +42 is the offset as ghost images are rendered from the top left
   dg = dist(mouseX, mouseY, randomX + 300, randomY + 300);
-  background('white');
+  
   //console.log(dg);
   //if the distance is just touching the ghost (give or take a pixel)
   if (dg <= r / 1) {
@@ -45,33 +41,45 @@ function mouseClicked() {
     score++;
     //console.log(score);
     //new ghost location
-    randomX = random(0, windowWidth - (windowWidth/400));
-    randomY = random(0, windowHeight - (windowHeight/400));
+    
+    randomX = random(0, windowWidth - (windowWidth/200));
+    randomY = random(0, windowHeight - (windowHeight/200));
+    
   }
 }
 function flashlight(x, y) {
-    // Calculate the bounds of the loop based on the distance between the mouse and the edge of the flashlight.
-    let startX = mouseX - r / 1.5;
-    let startY = mouseY - r / 1.5;
-    let endX = mouseX + r / 1.5;
-    let endY = mouseY + r / 1.5;
-    //!!!! code adapted from tutrial 4 drawcell() not sure how to link it !!!!
-    for (let x = startX; x < endX; x += 5) {
-      for (let y = startY; y < endY; y += 5) {
-        d = dist(mouseX - 2.5, mouseY - 2.5, x, y);
-        if (d <= r / 2) {
-          
-          lightsquare(x - 10, y - 10);
-          
-        } else {
-    
-          fill("black"); // set the color to black
-          stroke("black");
-          square(x - 2.5, y - 2.5);
-        }
+  // Set the distance threshold for rendering squares
+  const threshold = r / 2;
+  
+  // Calculate the bounds for the loop
+  const startX = mouseX - threshold;
+  const endX = mouseX + threshold +5;
+  const startY = mouseY - threshold;
+  const endY = mouseY + threshold +5 ;
+  
+  // Loop through the squares within the bounds
+  for (let xPos = startX; xPos < endX; xPos += 5) {
+    for (let yPos = startY; yPos < endY; yPos += 5) {
+      d = dist(mouseX, mouseY, xPos, yPos);
+      if (d <= threshold) {
+        lightsquare(xPos, yPos);
+      } else {
+        fill(flash);
+        stroke(flash);
+        square(xPos - 2.5, yPos - 2.5, 5);
       }
     }
-    flash = "white"; // set the flash color to white
+  }
+
+  // Draw black rectangles around the flashlight
+  noStroke();
+  fill(flash);
+  rect(0, 0, windowWidth, mouseY - threshold); // Top rectangle
+  rect(0, mouseY + threshold, windowWidth, windowHeight - (mouseY + threshold)); // Bottom rectangle
+  rect(0, mouseY - threshold, mouseX - threshold, threshold * 2); // Left rectangle
+  rect(mouseX + threshold, mouseY - threshold, windowWidth - (mouseX + threshold), threshold * 2); // Right rectangle
+
+  flash = "black";
 }
 
 function lightsquare(x, y) {
@@ -84,8 +92,8 @@ function lightsquare(x, y) {
   let sa = saturation(pixColor);
   let br = brightness(pixColor);
   fill(pixColor);
-  stroke('white');
-  square(x, y, 5);
+  stroke(pixColor);
+  square(x, y, 6);
 }
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight);
@@ -97,13 +105,14 @@ function setup() {
     resizeCanvas(windowWidth, windowHeight);
   }
   function draw() {
-    background(0);
+    clear();
+    //background(bg);
     flashlight(mouseX, mouseY);
-
     //convert score to string, dont know if this is needed but i thought it would be good form
     let strSC = String(score);
-    fill("white");
+    fill("0");
     textFont(font)
     textSize(20);
     text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
+    
   }

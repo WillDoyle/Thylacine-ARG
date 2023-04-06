@@ -32,11 +32,18 @@ h1{
 body{
 
 	font-family: 'Noto Serif', serif;
-	background-image: url('../Thylacine-ARG/images/bg.gif');
+	background-image: url('images/bg.gif');
 	background-size:cover;
 	background-repeat: no-repeat;
 
 }
+
+.thy {
+	background-image: url('images/thybg.gif');
+	background-size:20%;
+	background-repeat: repeat;
+}
+
 p,a {
 	color: white;
 	font-family: 'Parisienne', cursive;
