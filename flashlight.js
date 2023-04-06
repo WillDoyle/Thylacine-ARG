@@ -25,6 +25,36 @@ function preload() {
   thylacine = loadImage("images/thylacine.png");
 }
 
+function setup() {
+  let canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent('flashlight-container');
+  frameRate(60);
+
+  button = createButton('Proceed with caution');
+  button.position(windowWidth / 2, windowHeight / 2);
+  button.hide();
+  button.mouseOver(buttonChangeHover);
+  button.mouseOut(buttonChangeOut);
+  button.style('font-size','36px');
+
+  button.style('font-family','Parisienne','cursive');
+  button.mousePressed(link);
+}
+function buttonChangeOut(){
+  button.style('background-color',color('red'));
+  button.style('color',color('white'));
+}
+
+function buttonChangeHover(){
+
+  button.style('background-color',color('white'));
+  button.style('color',color('red'));
+
+}
+
+function link(){
+  window.location.pathname = '/Thylacine-ARG/index.html';
+}
 function mouseClicked() {
   //changes flash colour to white to simulate camera flash
   flash = "rgb(229,231,219)";
@@ -40,26 +70,26 @@ function mouseClicked() {
     //add 1 to score
     score++;
     //If score is 5
-    if(score >= 5){
-
+    if(score == 5){
+      button.show();
     }
     else{
-
+      // set the image size
+      var imageWidth = 600;
+      var imageHeight = 600;
+      
+      // calculate the maximum random X and Y coordinates to ensure the image is within the screen bounds
+      var maxX = windowWidth - imageWidth;
+      var maxY = windowHeight - imageHeight;
+      
+      console.log(score);
+      //new ghost location
+      
+      // generate new random X and Y coordinates within the screen bounds
+      randomX = random(0, maxX);
+      randomY = random(0, maxY);
     }
-    //console.log(score);
-    //new ghost location
-    
-    // set the image size
-    var imageWidth = 600;
-    var imageHeight = 600;
-    
-    // calculate the maximum random X and Y coordinates to ensure the image is within the screen bounds
-    var maxX = windowWidth - imageWidth;
-    var maxY = windowHeight - imageHeight;
-    
-    // generate new random X and Y coordinates within the screen bounds
-    randomX = random(0, maxX);
-    randomY = random(0, maxY);
+
     
   }
 }
@@ -111,11 +141,7 @@ function lightsquare(x, y) {
   stroke(pixColor);
   square(x, y, 6);
 }
-function setup() {
-    let canvas = createCanvas(windowWidth, windowHeight);
-    canvas.parent('flashlight-container');
-    frameRate(60);
-  }
+
   
   function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
@@ -124,13 +150,14 @@ function setup() {
     clear();
     //background(bg);
     flashlight(mouseX, mouseY);
+
     //convert score to string, dont know if this is needed but i thought it would be good form
     let strSC = String(score);
     fill("0");
     textFont(font)
     textSize(20);
     
-    text("Extract 5 Thylacines", 10, windowHeight - 40);
+    text("Capture 5 Thylacines", 10, windowHeight - 40);
   
     text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
     
