@@ -47,9 +47,29 @@ p,a {
 a {
 	display: flex;
 	justify-content: center;
+	z-index: 10;
+	background-color: red;
+	padding: 0.5rem;
+	animation: blinkingBackground 2s infinite;
+}
+
+@keyframes blinkingBackground{
+		0%		{ background-color: #ef0a1a;}
+		25%		{ background-color: #250f0a;}
+		50%		{ background-color: #ef0a1a;}
+		75%		{ background-color: #250f0a;}
+		100%	        { background-color: #ef0a1a;}
+	}
+
+a:hover {
+	background-color: black !important;
 }
 
 header {
+	position: fixed;
+	z-index: 1;}
+
+header canvas {
 	position: fixed;
 	z-index: 1;}
 
@@ -128,18 +148,20 @@ header {
 	
 }
 
+.right {
+	display:flex;
+}
+
 #sketch-container{
 	height: auto;
 }
-@media (max-height: 800px){
+@media (max-height : 800px){
 	.right{
-		display: hidden;
+		display: none;
 	}
 }
 @media  (max-width : 600px) {
-	html{
-		overflow-y: scroll;
-	}
+
 	h1 {
 		font-size: 3em;
 	}
