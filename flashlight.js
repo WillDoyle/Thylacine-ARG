@@ -86,7 +86,7 @@ function lightsquare(x, y) {
   fill(255);
 
   stroke(pixColor);
-  square(x, y, 5);
+  circle(x, y, 10);
 }
 
 function setup() {
