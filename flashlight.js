@@ -39,11 +39,27 @@ function mouseClicked() {
 
     //add 1 to score
     score++;
+    //If score is 5
+    if(score >= 5){
+
+    }
+    else{
+
+    }
     //console.log(score);
     //new ghost location
     
-    randomX = random(0, windowWidth - (windowWidth/200));
-    randomY = random(0, windowHeight - (windowHeight/200));
+    // set the image size
+    var imageWidth = 600;
+    var imageHeight = 600;
+    
+    // calculate the maximum random X and Y coordinates to ensure the image is within the screen bounds
+    var maxX = windowWidth - imageWidth;
+    var maxY = windowHeight - imageHeight;
+    
+    // generate new random X and Y coordinates within the screen bounds
+    randomX = random(0, maxX);
+    randomY = random(0, maxY);
     
   }
 }
@@ -113,6 +129,9 @@ function setup() {
     fill("0");
     textFont(font)
     textSize(20);
+    
+    text("Extract 5 Thylacines", 10, windowHeight - 40);
+  
     text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
     
   }
