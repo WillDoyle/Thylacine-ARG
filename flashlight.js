@@ -78,7 +78,8 @@ function lightsquare(x, y) {
   //!!!! code adapted from tutrial 4 drawcell() not sure how to link it !!!!
   // Switch to RGB color mode to correctly sample colour.
   colorMode(RGB);
-  let pixColor = ghost.get(x-randomX, y-randomY);
+  
+  let pixColor = thylacine.get(x-randomX, y-randomY);
   let hu = hue(pixColor);
   let sa = saturation(pixColor);
   let br = brightness(pixColor);
@@ -92,7 +93,6 @@ function setup() {
     let canvas = createCanvas(windowWidth, windowHeight);
     canvas.parent('flashlight-container');
     frameRate(60);
-    
   }
   
   function windowResized() {
@@ -101,12 +101,11 @@ function setup() {
   function draw() {
     background(0);
     flashlight(mouseX, mouseY);
-    
-    
+
     //convert score to string, dont know if this is needed but i thought it would be good form
     let strSC = String(score);
     fill("white");
     textFont(font)
-    textSize(30);
+    textSize(20);
     text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
   }
