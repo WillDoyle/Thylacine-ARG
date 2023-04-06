@@ -1,6 +1,6 @@
 let dots = [];
 let gridSize = 40;
-let dotSize = 10;
+let dotSize = 3;
 let maxDistance = 100;
 
 
@@ -10,7 +10,7 @@ function setup() {
 
   canvas.parent('sketch-container');
   noStroke();
- fill(255, 255, 255, 155)
+ fill(255, 0, 0, 50)
 
   
   // Create the grid of dots
@@ -29,8 +29,8 @@ function windowResized() {
 
 function draw() {
   let gridSize = round(windowWidth/100);
-  let dotSize = round(windowHeight/100);
-  clear();
+  let dotSize = round(windowHeight/500);
+  
    /*remove this to create insane effect*/
   
   for (let i = 0; i < dots.length; i++) {
@@ -45,8 +45,8 @@ function draw() {
       // Return the dot to its original position
       let originalX = map(i % gridSize, 0, gridSize-1, dotSize, width-dotSize);
       let originalY = map(floor(i/gridSize), 0, gridSize-1, dotSize, height-dotSize);
-      dots[i].x += (originalX - dots[i].x + random(-10,10)) * 0.1;
-      dots[i].y += (originalY - dots[i].y + random(-10,10)) * 0.1;
+      dots[i].x += (originalX - dots[i].x + random(-500,500)) * 0.1;
+      dots[i].y += (originalY - dots[i].y + random(-500,500)) * 0.1;
     }
     ellipse(dots[i].x, dots[i].y, dotSize, dotSize);
   }
