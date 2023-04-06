@@ -10,7 +10,7 @@ let ghost;
 let bg;
 let thylacine;
 //radius
-let r = 160;
+let r = 260;
 //ghost location
 var randomX = 250;
 var randomY = 100;
@@ -25,7 +25,7 @@ var score = 0;
 function preload() {
   font = loadFont("data/minecraft_font.ttf")
   bg = loadImage("data/forest2.png");
-  ghost = loadImage("data/ghost-1.png");
+  ghost = loadImage("data/capthy.png");
   thylacine = loadImage("data/thylacine.png");
 }
 
@@ -35,60 +35,58 @@ function mouseClicked() {
   
   //rect(bg.width,bg.height,bg.width,bg.height);
   //gets distance from the middle of ghost, +42 is the offset as ghost images are rendered from the top left
-  dg = dist(mouseX, mouseY, randomX + 42, randomY + 42);
+  dg = dist(mouseX, mouseY, randomX + 300, randomY + 300);
+  background('white');
   //console.log(dg);
   //if the distance is just touching the ghost (give or take a pixel)
-  if (dg <= r / 1.5) {
-    for(i=30; i< 255; i++){
-        background(i);
-    }
+  if (dg <= r / 1) {
+
     //add 1 to score
     score++;
     //console.log(score);
     //new ghost location
-    randomX = random(0, windowWidth - (windowWidth/60));
-    randomY = random(0, windowHeight - (windowHeight/60));
+    randomX = random(0, windowWidth - (windowWidth/400));
+    randomY = random(0, windowHeight - (windowHeight/400));
   }
 }
 function flashlight(x, y) {
     // Calculate the bounds of the loop based on the distance between the mouse and the edge of the flashlight.
-    let startX = mouseX - r / 2;
-    let startY = mouseY - r / 2;
-    let endX = mouseX + r / 2;
-    let endY = mouseY + r / 2;
+    let startX = mouseX - r / 1.5;
+    let startY = mouseY - r / 1.5;
+    let endX = mouseX + r / 1.5;
+    let endY = mouseY + r / 1.5;
     //!!!! code adapted from tutrial 4 drawcell() not sure how to link it !!!!
     for (let x = startX; x < endX; x += 5) {
       for (let y = startY; y < endY; y += 5) {
         d = dist(mouseX - 2.5, mouseY - 2.5, x, y);
         if (d <= r / 2) {
           
-          lightsquare(x - 10, y - 10, 5);
+          lightsquare(x - 10, y - 10);
           
         } else {
-          
-          fill(0);
-          square(x - 2.5, y - 2.5, 3);
+    
+          fill("black"); // set the color to black
+          stroke("black");
+          square(x - 2.5, y - 2.5);
         }
       }
     }
-    flash = "black";
-  }
+    flash = "white"; // set the flash color to white
+}
 
 function lightsquare(x, y) {
   //!!!! code adapted from tutrial 4 drawcell() not sure how to link it !!!!
   // Switch to RGB color mode to correctly sample colour.
   colorMode(RGB);
   
-  let pixColor = thylacine.get(x-randomX, y-randomY);
+  let pixColor = ghost.get(x-randomX, y-randomY);
   let hu = hue(pixColor);
   let sa = saturation(pixColor);
   let br = brightness(pixColor);
-  fill(255);
-
-  stroke(pixColor);
-  circle(x, y, 10);
+  fill(pixColor);
+  stroke('white');
+  square(x, y, 5);
 }
-
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight);
     canvas.parent('flashlight-container');
