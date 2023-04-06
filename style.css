@@ -153,6 +153,11 @@ header canvas {
 #sketch-container{
 	height: auto;
 }
+
+#flashlight-container{
+
+	height: 100% !important;
+}
 @media (max-height : 800px){
 	.right{
 		display: none;
