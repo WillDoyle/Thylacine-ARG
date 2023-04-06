@@ -9,7 +9,7 @@ let font;
 let ghost;
 let bg;
 //radius
-let r = 120;
+let r = 160;
 //ghost location
 var randomX = 250;
 var randomY = 100;
@@ -37,6 +37,9 @@ function mouseClicked() {
   //console.log(dg);
   //if the distance is just touching the ghost (give or take a pixel)
   if (dg <= r / 1.5) {
+    for(i=30; i< 255; i++){
+        background(i);
+    }
     //add 1 to score
     score++;
     //console.log(score);
@@ -56,12 +59,15 @@ function flashlight(x, y) {
       for (let y = startY; y < endY; y += 5) {
         d = dist(mouseX - 2.5, mouseY - 2.5, x, y);
         if (d <= r / 2) {
-          noFill();
+          
           lightsquare(x - 10, y - 10, 5);
+          
         } else {
+          
           fill(0);
-          stroke(flash);
-          square(x - 2.5, y - 2.5, 5);
+
+          
+          square(x - 2.5, y - 2.5, 3);
         }
       }
     }
@@ -76,7 +82,7 @@ function lightsquare(x, y) {
   let hu = hue(pixColor);
   let sa = saturation(pixColor);
   let br = brightness(pixColor);
-  fill(pixColor);
+  fill(255);
   stroke(pixColor);
   square(x, y, 5);
 }
@@ -85,14 +91,17 @@ function setup() {
     let canvas = createCanvas(windowWidth, windowHeight);
     canvas.parent('flashlight-container');
     frameRate(60);
+    
   }
   
   function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
   }
   function draw() {
-    clear();
+    background(0);
     flashlight(mouseX, mouseY);
+    
+    
     //convert score to string, dont know if this is needed but i thought it would be good form
     let strSC = String(score);
     fill("white");
