@@ -8,6 +8,7 @@
 let font;
 let ghost;
 let bg;
+let thylacine;
 //radius
 let r = 160;
 //ghost location
@@ -25,6 +26,7 @@ function preload() {
   font = loadFont("data/minecraft_font.ttf")
   bg = loadImage("data/forest2.png");
   ghost = loadImage("data/ghost-1.png");
+  thylacine = loadImage("data/thylacine.png");
 }
 
 function mouseClicked() {
@@ -44,8 +46,8 @@ function mouseClicked() {
     score++;
     //console.log(score);
     //new ghost location
-    randomX = random(0, windowWidth);
-    randomY = random(0, windowHeight);
+    randomX = random(0, windowWidth - (windowWidth/60));
+    randomY = random(0, windowHeight - (windowHeight/60));
   }
 }
 function flashlight(x, y) {
@@ -65,8 +67,6 @@ function flashlight(x, y) {
         } else {
           
           fill(0);
-
-          
           square(x - 2.5, y - 2.5, 3);
         }
       }
@@ -83,6 +83,7 @@ function lightsquare(x, y) {
   let sa = saturation(pixColor);
   let br = brightness(pixColor);
   fill(255);
+
   stroke(pixColor);
   square(x, y, 5);
 }
@@ -107,5 +108,5 @@ function setup() {
     fill("white");
     textFont(font)
     textSize(30);
-    text("Ghosts Captured: "+strSC, 10, windowHeight - 10);
+    text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
   }
