@@ -119,13 +119,11 @@ header {
 }
 
 .dot-matrix {
-
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	
 }
 
 #sketch-container{
@@ -133,7 +131,7 @@ header {
 }
 @media (max-height: 800px){
 	.right{
-		display: hidden;
+		display: none;
 	}
 }
 @media  (max-width : 600px) {

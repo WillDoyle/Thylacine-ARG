@@ -7,8 +7,8 @@ let maxDistance = 100;
 
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
-
   canvas.parent('sketch-container');
+  canvas.style('z-index','-3');
   noStroke();
  fill(255, 0, 0, 50)
 
