@@ -133,6 +133,9 @@ header {
 }
 
 @media  (max-width : 600px) {
+	html{
+		overflow-y: scroll;
+	}
 	h1 {
 		font-size: 3em;
 	}
