@@ -1,11 +1,19 @@
+html {
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
 * {
 	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+	margin: auto;
+	padding: auto;
 	/*background-color: #00111C;*/
 }
 canvas {
 	display: block;
+	width: 100% !important;
+	height: 100% !important;
 }
 
 h1{
@@ -16,13 +24,17 @@ h1{
 	color: rgb(241, 91, 91);
 	font-size: 5rem;
 }
+
+.above {
+	position: static;
+	z-index: 2;
+}
 body{
+
 	font-family: 'Noto Serif', serif;
 	background-image: url('../Thylacine-ARG/images/bg.gif');
-	background-size: cover;
-	overflow-x: hidden;
-	overflow-y: hidden;
-	
+	background-size:cover;
+	background-repeat: no-repeat;
 
 }
 p,a {
@@ -31,6 +43,15 @@ p,a {
 	font-size: 1.5em;
 	text-align: center;
 }
+
+a {
+	display: flex;
+	justify-content: center;
+}
+
+header {
+	position: fixed;
+	z-index: 1;}
 
 .landing-wrapper{
 	display: flex;
@@ -65,6 +86,18 @@ p,a {
 	justify-content: center;
 }
 
+.mobile {
+	width: 50px;
+	height: 50px;
+	display:none;
+}
+
+.footing {
+	display: flex;
+	flex-direction: column;
+	padding:1em;
+}
+
 .image-container img {
 	width: 100px;
 	height: 100px;
@@ -96,9 +129,38 @@ p,a {
 }
 
 #sketch-container{
-	height: 5px;
+	height: auto;
 }
 
+@media  (max-width : 600px) {
+	h1 {
+		font-size: 3em;
+	}
+
+	p {
+		font-size: 1rem;
+	}
+    .img-box{
+		width:75%;
+	}
+	.landing-wrapper {
+		flex-direction: column;
+		padding: 1em;
+	}
+	.image-container { 
+		flex-direction: row;
+		
+	}
+	.image-container img{ 
+		width: 15%;
+		height: 15%;
+	}
+
+	.mobile {
+	display: block;
+
+}
+}
 
 
 .dot {
@@ -122,3 +184,4 @@ p,a {
 	  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
 	}
   }
+
