@@ -32,7 +32,7 @@ h1{
 body{
 
 	font-family: 'Noto Serif', serif;
-	background-image: url('images/bg.gif');
+	background-image: url('../Thylacine-ARG/images/bg.gif');
 	background-size:cover;
 	background-repeat: no-repeat;
 
@@ -131,7 +131,7 @@ header canvas {
 	z-index: 3;
 	height: 38px;
 	width: 100%;
-	background-image: url('../Thylacine-ARG/images/sep1.png');
+	background-image: url('/images/sep1.png');
 }
 
 .image-container img:hover {
@@ -156,7 +156,7 @@ header canvas {
 
 #flashlight-container{
 
-	height: 100% !important;
+	height:  !important;
 }
 @media (max-height : 800px){
 	.right{
