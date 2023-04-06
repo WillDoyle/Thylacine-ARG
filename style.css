@@ -156,7 +156,7 @@ header canvas {
 
 #flashlight-container{
 
-	height:  !important;
+	height: 100% !important;
 }
 @media (max-height : 800px){
 	.right{
