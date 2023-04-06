@@ -131,7 +131,7 @@ header canvas {
 	z-index: 3;
 	height: 38px;
 	width: 100%;
-	background-image: url('../Thylacine-ARG/images/sep1.png');
+	background-image: url('images/sep1.png');
 }
 
 .image-container img:hover {
