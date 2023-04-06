@@ -53,7 +53,7 @@ function buttonChangeHover(){
 }
 
 function link(){
-  window.location.pathname = '/Thylacine-ARG/thylacine2.html';
+  window.location.pathname = '/Thylacine-ARG/index.html';
 }
 function mouseClicked() {
   //changes flash colour to white to simulate camera flash
