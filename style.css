@@ -38,7 +38,7 @@ body{
 
 }
 
-.thy {
+#thy {
 	background-image: url('images/thybg.gif');
 	background-size:20%;
 	background-repeat: repeat;
