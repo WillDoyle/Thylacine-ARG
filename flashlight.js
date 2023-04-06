@@ -56,9 +56,10 @@ function flashlight(x, y) {
       for (let y = startY; y < endY; y += 5) {
         d = dist(mouseX - 2.5, mouseY - 2.5, x, y);
         if (d <= r / 2) {
+          noFill();
           lightsquare(x - 10, y - 10, 5);
         } else {
-          fill(flash);
+          fill(0);
           stroke(flash);
           square(x - 2.5, y - 2.5, 5);
         }
@@ -66,8 +67,6 @@ function flashlight(x, y) {
     }
     flash = "black";
   }
-
-
 
 function lightsquare(x, y) {
   //!!!! code adapted from tutrial 4 drawcell() not sure how to link it !!!!
