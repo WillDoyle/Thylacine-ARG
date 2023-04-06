@@ -131,7 +131,11 @@ header {
 #sketch-container{
 	height: auto;
 }
-
+@media (max-height: 800px){
+	.right{
+		display: hidden;
+	}
+}
 @media  (max-width : 600px) {
 	html{
 		overflow-y: scroll;

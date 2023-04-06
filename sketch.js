@@ -29,7 +29,7 @@ function windowResized() {
 
 function draw() {
   let gridSize = round(windowWidth/100) + 10;
-  let dotSize = round(windowHeight/400) + 2;
+  let dotSize = round(windowHeight/600);
   
    /*remove this to create insane effect*/
   
