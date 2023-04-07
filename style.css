@@ -35,6 +35,7 @@ body{
 	background-image: url('images/bg.gif');
 	background-size:cover;
 	background-repeat: no-repeat;
+	position: relative;
 
 }
 

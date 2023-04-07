@@ -5,11 +5,17 @@ let font;
 let ghost;
 let bg;
 let thylacine;
+var hitbox; 
 //radius
 let r = 300;
 //ghost location
-var randomX = 250;
-var randomY = 100;
+var imageWidth = 600;
+var imageHeight = 600;
+var maxX
+var maxY
+var randomX = 0;
+var randomY = 0;
+
 //distance for flashlight circle and dg for distance to ghost
 let d;
 let dg;
@@ -31,7 +37,9 @@ function setup() {
   frameRate(60);
 
   button = createButton('Proceed with caution');
-  button.position(windowWidth / 2, windowHeight / 2);
+  button.position(windowWidth / 2-140, windowHeight / 2);
+  console.log(windowWidth / 2.2);
+  console.log(windowHeight / 2.2);
   button.hide();
   button.mouseOver(buttonChangeHover);
   button.mouseOut(buttonChangeOut);
@@ -39,6 +47,22 @@ function setup() {
 
   button.style('font-family','Parisienne','cursive');
   button.mousePressed(link);
+  r = windowWidth*0.40
+  
+      if (r >=300 ){
+      r=300
+    }
+      if (r <= 250) {
+        imageHeight = 200;
+        imageWidth = 200;
+         ghost.resize(imageWidth, imageHeight);
+      }
+    hitbox = r;
+    maxX = windowWidth - imageWidth;
+    maxY = windowHeight - imageHeight;
+    randomX = random(0, maxX);
+    randomY = random(0, maxY);
+    
 }
 function buttonChangeOut(){
   button.style('background-color',color('red'));
@@ -61,7 +85,7 @@ function mouseClicked() {
   
   //rect(bg.width,bg.height,bg.width,bg.height);
   //gets distance from the middle of ghost, +42 is the offset as ghost images are rendered from the top left
-  dg = dist(mouseX, mouseY, randomX + 300, randomY + 300);
+  dg = dist(mouseX, mouseY, randomX + hitbox, randomY + hitbox);
   
   //console.log(dg);
   //if the distance is just touching the ghost (give or take a pixel)
@@ -71,23 +95,25 @@ function mouseClicked() {
     score++;
     //If score is 5
     if(score == 5){
+      randomX = -2000;
       button.show();
+
     }
     else{
       // set the image size
-      var imageWidth = 600;
-      var imageHeight = 600;
+
       
       // calculate the maximum random X and Y coordinates to ensure the image is within the screen bounds
-      var maxX = windowWidth - imageWidth;
-      var maxY = windowHeight - imageHeight;
+
       
-      console.log(score);
+      
       //new ghost location
       
       // generate new random X and Y coordinates within the screen bounds
       randomX = random(0, maxX);
       randomY = random(0, maxY);
+      //console.log(randomX);
+      //console.log(randomY);
     }
 
     
@@ -145,6 +171,10 @@ function lightsquare(x, y) {
   
   function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+    r = windowWidth*0.50
+    if (r >=300 ){
+      r=300
+    }
   }
   function draw() {
     clear();
