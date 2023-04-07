@@ -111,8 +111,8 @@ function mouseClicked() {
     score++;
 
       if(score >= 4){
-        //bgAudio.setVolume(0.1);
-        //bgAudio.play();
+        bgAudio.setVolume(0.1);
+        bgAudio.play();
     redThyClicked = redThyClicked+0.3;
     r = windowWidth*0.40*redThyClicked;
     ghost = finalThy;
@@ -231,6 +231,6 @@ function lightsquare(x, y) {
       text("Tap 5 Thylacines", 10, windowHeight - 40);
     }
     
-    text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
+    text("v1.0 - Thylacines Captured: "+strSC, 10, windowHeight - 10);
     
   }
