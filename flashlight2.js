@@ -111,6 +111,8 @@ function mouseClicked() {
     score++;
 
       if(score >= 4){
+        bgAudio.setVolume(0.1);
+        bgAudio.play();
     redThyClicked = redThyClicked+0.3;
     r = windowWidth*0.40*redThyClicked;
     ghost = finalThy;
@@ -221,8 +223,7 @@ function lightsquare(x, y) {
     
     //Change instructions text when score is greater than or equal 4
     if (score >= 4){
-      bgAudio.setVolume(0.05);
-      bgAudio.play();
+
       text("Tap The Final Thylacine", 10, windowHeight - 40);
     }
     else{
