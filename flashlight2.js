@@ -5,6 +5,7 @@ let font;
 let ghost;
 let bg;
 let thylacine;
+let finalthy;
 var hitbox; 
 //radius
 let r = 300;
@@ -15,6 +16,7 @@ var maxX
 var maxY
 var randomX = 0;
 var randomY = 0;
+var redThyClicked = 1;
 
 //distance for flashlight circle and dg for distance to ghost
 let d;
@@ -27,8 +29,9 @@ var score = 0;
 function preload() {
   font = loadFont("images/minecraft_font.ttf")
   bg = loadImage("images/thybg.gif");
-  ghost = loadImage("images/capthy.png");
-  thylacine = loadImage("images/thylacine.png");
+
+  thylacine = loadImage("images/capthy.png");
+  finalThy = loadImage("images/thefinalthy.png");
 }
 
 function setup() {
@@ -47,7 +50,7 @@ function setup() {
 
   button.style('font-family','Parisienne','cursive');
   button.mousePressed(link);
-  r = windowWidth*0.40
+  r = windowWidth*0.40*redThyClicked;
   
       if (r >=300 ){
       r=300
@@ -55,7 +58,10 @@ function setup() {
       if (r <= 250) {
         imageHeight = 200;
         imageWidth = 200;
-         ghost.resize(imageWidth, imageHeight);
+        ghost = thylacine;
+        finalThy.resize(imageWidth, imageHeight);
+        thylacine.resize(imageWidth,imageHeight);
+        ghost.resize(imageWidth, imageHeight);
       }
     hitbox = r;
     maxX = windowWidth - imageWidth;
@@ -93,8 +99,22 @@ function mouseClicked() {
 
     //add 1 to score
     score++;
+
+      if(score >= 4){
+    redThyClicked = redThyClicked+0.3;
+    r = windowWidth*0.40*redThyClicked;
+    ghost = finalThy;
+    if(score >=5) {
+      flash = "red";
+    }
+    }
+  else{
+    
+    ghost = thylacine;
+          
+  }
     //If score is 5
-    if(score == 5){
+    if(score == 7){
       randomX = -2000;
       button.show();
 
@@ -158,6 +178,8 @@ function lightsquare(x, y) {
   //!!!! code adapted from tutrial 4 drawcell() not sure how to link it !!!!
   // Switch to RGB color mode to correctly sample colour.
   colorMode(RGB);
+  //Change thylacine image based on the score
+
   
   let pixColor = ghost.get(x-randomX, y-randomY);
   let hu = hue(pixColor);
@@ -187,8 +209,7 @@ function lightsquare(x, y) {
     textFont(font)
     textSize(20);
     
-    text("Capture 5 Thylacines", 10, windowHeight - 40);
-  
+    text("Tap 5 Thylacines", 10, windowHeight - 40);
     text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
     
   }
