@@ -5,7 +5,8 @@ let font;
 let ghost;
 let bg;
 let thylacine;
-let finalthy;
+let finalThy;
+let bgAudio;
 var hitbox; 
 //radius
 let r = 300;
@@ -29,7 +30,7 @@ var score = 0;
 function preload() {
   font = loadFont("images/minecraft_font.ttf")
   bg = loadImage("images/thybg.gif");
-
+  
   thylacine = loadImage("images/capthy.png");
   finalThy = loadImage("images/thefinalthy.png");
 }
@@ -43,13 +44,22 @@ function setup() {
   button.position(windowWidth / 2-140, windowHeight / 2);
   console.log(windowWidth / 2.2);
   console.log(windowHeight / 2.2);
+
+  //Proceed Button
   button.hide();
   button.mouseOver(buttonChangeHover);
   button.mouseOut(buttonChangeOut);
   button.style('font-size','36px');
 
+
   button.style('font-family','Parisienne','cursive');
   button.mousePressed(link);
+
+  //Sound 
+  bgAudio = loadSound('sounds/binural.ogg');
+  soundFormats('ogg');
+
+  //Radius
   r = windowWidth*0.40*redThyClicked;
   
       if (r >=300 ){
@@ -209,7 +219,17 @@ function lightsquare(x, y) {
     textFont(font)
     textSize(20);
     
-    text("Tap 5 Thylacines", 10, windowHeight - 40);
+    //Change instructions text when score is greater than or equal 4
+    if (score >= 4){
+      bgAudio.setVolume(0.05);
+      bgAudio.play();
+      text("Tap The Final Thylacine", 10, windowHeight - 40);
+    }
+    else{
+      
+      text("Tap 5 Thylacines", 10, windowHeight - 40);
+    }
+    
     text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
     
   }
