@@ -187,8 +187,7 @@ function lightsquare(x, y) {
     textFont(font)
     textSize(20);
     
-    text("Capture 5 Thylacines", 10, windowHeight - 40);
-  
-    text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
+    text("Tap 5 Thylacines", 10, windowHeight - 40);
+    text("Thylacines Found: "+strSC, 10, windowHeight - 10);
     
   }
