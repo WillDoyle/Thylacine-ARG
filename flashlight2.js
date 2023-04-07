@@ -111,8 +111,8 @@ function mouseClicked() {
     score++;
 
       if(score >= 4){
-        bgAudio.setVolume(0.1);
-        bgAudio.play();
+        //bgAudio.setVolume(0.1);
+        //bgAudio.play();
     redThyClicked = redThyClicked+0.3;
     r = windowWidth*0.40*redThyClicked;
     ghost = finalThy;
