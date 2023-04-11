@@ -19,6 +19,7 @@ var randomX = 0;
 var randomY = 0;
 var redThyClicked = 1;
 
+
 //distance for flashlight circle and dg for distance to ghost
 let d;
 let dg;
@@ -30,7 +31,8 @@ var score = 0;
 function preload() {
   font = loadFont("images/minecraft_font.ttf")
   bg = loadImage("images/thybg.gif");
-  
+
+
   thylacine = loadImage("images/capthy.png");
   finalThy = loadImage("images/thefinalthy.png");
 }
@@ -56,8 +58,9 @@ function setup() {
   button.mousePressed(link);
 
   //Sound 
-  bgAudio = loadSound('sounds/binural.ogg');
-  soundFormats('ogg');
+  //bgAudio = loadSound('sounds/binural.ogg');
+  //soundFormats('ogg');
+
 
   //Radius
   r = windowWidth*0.40*redThyClicked;
@@ -111,8 +114,8 @@ function mouseClicked() {
     score++;
 
       if(score >= 4){
-        bgAudio.setVolume(0.1);
-        bgAudio.play();
+        //bgAudio.setVolume(0.1);
+        //bgAudio.play();
     redThyClicked = redThyClicked+0.3;
     r = windowWidth*0.40*redThyClicked;
     ghost = finalThy;
@@ -234,3 +237,5 @@ function lightsquare(x, y) {
     text("v1.0 - Thylacines Captured: "+strSC, 10, windowHeight - 10);
     
   }
+
+  
