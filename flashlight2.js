@@ -31,8 +31,6 @@ var score = 0;
 function preload() {
   font = loadFont("images/minecraft_font.ttf")
   bg = loadImage("images/thybg.gif");
-
-
   thylacine = loadImage("images/capthy.png");
   finalThy = loadImage("images/thefinalthy.png");
 }
@@ -96,7 +94,7 @@ function buttonChangeHover(){
 }
 
 function link(){
-  window.location.pathname = '/Thylacine-ARG/thylacine2.html';
+  window.location.pathname = '/Thylacine-ARG/thylacine3.html';
 }
 function mouseClicked() {
   //changes flash colour to white to simulate camera flash
