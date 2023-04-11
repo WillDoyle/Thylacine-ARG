@@ -66,6 +66,7 @@ body{
 	background-size:initial;
 	background-position: center;
 	height: 100%;
+	opacity: 1;
 	animation: blinkingBackground 10s infinite;
 }
 
@@ -98,8 +99,8 @@ a {
 .poemt {
 	font-family: 'Courgette', cursive;
 	color: #ef0a1a;
-	-webkit-text-stroke: 0.7px #1f0000;
-	font-size: 1.5em;
+	-webkit-text-stroke: 0.9px #1f0000;
+	font-size: 1.7em;
 	line-height: 2;
 	opacity: 0;
 	animation-fill-mode: forwards; /* Retain style properties after animation */
