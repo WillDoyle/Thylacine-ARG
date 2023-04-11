@@ -46,10 +46,27 @@ body{
 
 }
 
+.poemmain {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+}
+
 #thy {
 	background-image: url('images/thybg.gif');
 	background-size:20%;
 	background-repeat: repeat;
+}
+
+#poem {
+	display: flex;
+	align-items: center;
+	background-image: url('images/poem.png');
+	background-size:initial;
+	background-position: center;
+	height: 100%;
+	animation: blinkingBackground 10s infinite;
 }
 
 p,a {
@@ -72,11 +89,59 @@ a {
 
 @keyframes blinkingBackground{
 		0%		{ background-color: #ef0a1a;}
-		25%		{ background-color: #250f0a;}
+		25%		{ background-color: #1b0000;}
 		50%		{ background-color: #ef0a1a;}
-		75%		{ background-color: #250f0a;}
+		75%		{ background-color: #1f0000;}
 		100%	        { background-color: #ef0a1a;}
 	}
+
+.poemt {
+	font-family: 'Courgette', cursive;
+	color: #ef0a1a;
+	-webkit-text-stroke: 0.7px #1f0000;
+	font-size: 1.5em;
+	line-height: 2;
+	opacity: 0;
+	animation-fill-mode: forwards; /* Retain style properties after animation */
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.text1 {
+	position: fixed;
+	animation: fadein 1s ease-in forwards,
+             fadeout 1s ease-in 10s forwards;
+}
+
+
+
+.text2 {
+	position: fixed;
+	animation: fadein 1s ease-in 10s forwards,
+    fadeout 1s ease-in 20s forwards;
+}
+
+.text3 {
+	position: fixed;
+	animation: fadein 1s ease-in 20s forwards;
+
+}
 
 a:hover {
 	background-color: black !important;
@@ -181,6 +246,18 @@ header canvas {
 	}
 }
 @media  (max-width : 600px) {
+
+
+
+	#poem {
+		background-size: 90%;
+		background-position: center;
+	}
+
+	.poemt {
+		font-size: 1.1em;
+		-webkit-text-stroke: 0.3px #1f0000;
+	}
 
 	h1 {
 		font-size: 3em;
