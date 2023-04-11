@@ -31,8 +31,6 @@ var score = 0;
 function preload() {
   font = loadFont("images/minecraft_font.ttf")
   bg = loadImage("images/thybg.gif");
-
-
   thylacine = loadImage("images/capthy.png");
   finalThy = loadImage("images/thefinalthy.png");
 }
