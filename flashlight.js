@@ -165,7 +165,7 @@ function flashlight(x, y) {
 }
 
 function lightsquare(x, y) {
-  //!!!! code adapted from tutrial 4 drawcell() not sure how to link it !!!!
+  //!!!! code adapted from tutorial 4 drawcell() not sure how to link it !!!!
   // Switch to RGB color mode to correctly sample colour.
   colorMode(RGB);
   

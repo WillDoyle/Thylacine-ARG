@@ -70,12 +70,12 @@ function setup() {
       if (r <= 250) {
         imageHeight = 200;
         imageWidth = 200;
-        ghost = finalThy;
-        finalThy.resize(imageWidth, imageHeight);
-        thylacine.resize(imageWidth,imageHeight);
-        overlay.resize(windowWidth, windowHeight);
-        ghost.resize(imageWidth, imageHeight);
       }
+    ghost = finalThy;
+    finalThy.resize(imageWidth, imageHeight);
+    thylacine.resize(imageWidth,imageHeight);
+    overlay.resize(windowWidth, windowHeight);
+    ghost.resize(imageWidth, imageHeight);
     hitbox = r;
     maxX = windowWidth - imageWidth;
     maxY = windowHeight - imageHeight;
@@ -105,6 +105,9 @@ function mouseClicked() {
         //bgAudio.play();
     redThyClicked = redThyClicked+0.3;
     r = windowWidth*0.40*redThyClicked;
+    if (r >=350 ){
+      r=350;
+    }
     ghost = finalThy;
 
     finalThy.resize(imageHeight +redThyClicked*150, imageWidth + redThyClicked*150);

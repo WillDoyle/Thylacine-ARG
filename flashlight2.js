@@ -8,6 +8,7 @@ let thylacine;
 let finalThy;
 let bgAudio;
 var hitbox;
+let pixColor;
 
 
 let startTime;
@@ -68,22 +69,19 @@ function setup() {
   //Sound 
   //bgAudio = loadSound('sounds/binural.ogg');
   //
-
-
   //Radius
   r = windowWidth*0.40*redThyClicked;
-  
-      if (r >=300 ){
+    if (r >=300 ){
       r=300
     }
       if (r <= 250) {
         imageHeight = 200;
         imageWidth = 200;
-        ghost = thylacine;
-        finalThy.resize(imageWidth, imageHeight);
-        thylacine.resize(imageWidth,imageHeight);
-        ghost.resize(imageWidth, imageHeight);
       }
+    ghost = thylacine;
+    finalThy.resize(imageWidth, imageHeight);
+    thylacine.resize(imageWidth,imageHeight);
+    ghost.resize(imageWidth, imageHeight);
     hitbox = r;
     maxX = windowWidth - imageWidth;
     maxY = windowHeight - imageHeight;
@@ -127,6 +125,9 @@ function mouseClicked() {
         //bgAudio.play();
     redThyClicked = redThyClicked+0.3;
     r = windowWidth*0.40*redThyClicked;
+    if (r >=350 ){
+      r=350
+    }
     ghost = finalThy;
     if(score >=5) {
       flash = "red";
@@ -145,14 +146,6 @@ function mouseClicked() {
     }
     else{
       // set the image size
-
-      
-      // calculate the maximum random X and Y coordinates to ensure the image is within the screen bounds
-
-      
-      
-      //new ghost location
-      
       // generate new random X and Y coordinates within the screen bounds
       randomX = random(0, maxX);
       randomY = random(0, maxY);
@@ -204,14 +197,15 @@ function lightsquare(x, y) {
   colorMode(RGB);
   //Change thylacine image based on the score
 
-  
   let pixColor = ghost.get(x-randomX, y-randomY);
+
   let hu = hue(pixColor);
   let sa = saturation(pixColor);
   let br = brightness(pixColor);
   fill(pixColor);
   stroke(pixColor);
   square(x, y, 6);
+  
 }
 
   
