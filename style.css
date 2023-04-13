@@ -6,11 +6,11 @@ html {
 
 * {
 	-webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
--o-user-select: none;
-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
 	box-sizing: border-box;
 	margin: auto;
 	padding: auto;
@@ -70,7 +70,7 @@ body{
 	animation: blinkingBackground 10s infinite;
 }
 
-p,a {
+p,a, button{
 	color: white;
 	font-family: 'Courgette', cursive;
 	font-size: 1.5em;
@@ -79,7 +79,7 @@ p,a {
 	z-index: 3;
 }
 
-a {
+a, button {
 	display: flex;
 	justify-content: center;
 	z-index: 10;
@@ -87,6 +87,8 @@ a {
 	padding: 0.5rem;
 	animation: blinkingBackground 2s infinite;
 }
+
+
 
 @keyframes blinkingBackground{
 		0%		{ background-color: #ef0a1a;}
@@ -97,6 +99,7 @@ a {
 	}
 
 .poemt {
+	display: none;
 	font-family: 'Courgette', cursive;
 	color: #ef0a1a;
 	-webkit-text-stroke: 0.9px #1f0000;
@@ -127,20 +130,20 @@ a {
 .text1 {
 	position: fixed;
 	animation: fadein 1s ease-in forwards,
-             fadeout 1s ease-in 10s forwards;
+             fadeout 1s ease-in 16s forwards;
 }
 
 
 
 .text2 {
 	position: fixed;
-	animation: fadein 1s ease-in 10s forwards,
-    fadeout 1s ease-in 20s forwards;
+	animation: fadein 1s ease-in 16s forwards,
+    fadeout 1s ease-in 29s forwards;
 }
 
 .text3 {
 	position: fixed;
-	animation: fadein 1s ease-in 20s forwards;
+	animation: fadein 1s ease-in 29s forwards;
 
 }
 

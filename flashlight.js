@@ -37,6 +37,7 @@ function preload() {
   bg = loadImage("images/thybg.gif");
   ghost = loadImage("images/capthy.png");
   thylacine = loadImage("images/thylacine.png");
+
 }
 
 function setup() {
@@ -91,7 +92,7 @@ function link(){
 function mouseClicked() {
   //changes flash colour to white to simulate camera flash
   flash = "rgb(229,231,219)";
-  
+
   //rect(bg.width,bg.height,bg.width,bg.height);
   //gets distance from the middle of ghost, +42 is the offset as ghost images are rendered from the top left
   dg = dist(mouseX, mouseY, randomX + hitbox, randomY + hitbox);

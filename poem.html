@@ -14,22 +14,40 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
+  <audio id="audio">
+  <source src="sounds/poemaudio.mp3" type="audio/mp3">
+  </audio>
+
   <body id="poem">
     <main class="poemmain">
-    <p class="text1 poemt">In the wild, we once roamed free,<br>
-        How feared and revered we used to be.<br>
+      <button type="button" onclick="poem()" id="reap">Reap the rewards...</button>
+    <p class="text1 poemt" id="poemp">In the wild, we once roamed free,<br>
+        Thylacines feared and revered we used to be.<br>
         But then they came, with traps and guns,<br>
         Hunting us down, nowhere to run.</p>
 
-      <p class="text2 poemt">We fought and fled, but it was in vain,<br>
+      <p class="text2 poemt" id="poemp2">We fought and fled, but it was in vain,<br>
         They killed my kind, with no refrain.<br>
         Our species gone, forevermore,<br>
         Or so they thought, in times before.</p>    
 
-      <p class="text3 poemt">Our brother and sisters, laid to waste,<br>
+      <p class="text3 poemt" id="poemp3"">Our brother and sisters, laid to waste,<br>
         Trapper's blood, we wish to taste.<br>
         We no longer hide, our extinction, a front,<br>
-        You will not be safe,<br> when we begin our hunt.</p>
+        You will not be safe,<br> when we begin our HUNT.</p>
         </main>
   </body>
+
+  <script> 
+  function poem() {
+    var audio = document.getElementById("audio");
+    audio.play();
+    document.getElementById("poemp").style.display = "flex";
+    document.getElementById("poemp2").style.display = "flex";
+    document.getElementById("poemp3").style.display = "flex";
+
+    document.getElementById("reap").style.display = "none";
+
+  }
+  </script>
 </html>

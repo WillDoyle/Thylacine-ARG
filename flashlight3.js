@@ -25,6 +25,7 @@ var maxY
 var randomX = 0;
 var randomY = 0;
 var redThyClicked = 1;
+var offset = 0
 
 
 //distance for flashlight circle and dg for distance to ghost
@@ -53,20 +54,7 @@ function setup() {
   canvas.parent('flashlight-container');
   frameRate(60);
 
-  button = createButton('Reap your reward');
-  button.position(windowWidth / 2-140, windowHeight / 2);
-  console.log(windowWidth / 2.2);
-  console.log(windowHeight / 2.2);
 
-  //Proceed Button
-  button.hide();
-  button.mouseOver(buttonChangeHover);
-  button.mouseOut(buttonChangeOut);
-  button.style('font-size','36px');
-
-
-  button.style('font-family','Courgette','cursive');
-  button.mousePressed(link);
 
   //Sound 
   //bgAudio = loadSound('sounds/binural.ogg');
@@ -91,25 +79,11 @@ function setup() {
     hitbox = r;
     maxX = windowWidth - imageWidth;
     maxY = windowHeight - imageHeight;
-    randomX = random(0, maxX);
-    randomY = random(0, maxY);
+    randomX = random(offset, maxX);
+    randomY = random(offset, maxY);
     
 }
-function buttonChangeOut(){
-  button.style('background-color',color('red'));
-  button.style('color',color('white'));
-}
 
-function buttonChangeHover(){
-
-  button.style('background-color',color('white'));
-  button.style('color',color('red'));
-
-}
-
-function link(){
-  window.location.pathname = 'poem.html';
-}
 function mouseClicked() {
   //changes flash colour to white to simulate camera flash
   flash = "rgb(229,231,219)";
@@ -132,8 +106,16 @@ function mouseClicked() {
     redThyClicked = redThyClicked+0.3;
     r = windowWidth*0.40*redThyClicked;
     ghost = finalThy;
+
+    finalThy.resize(imageHeight +redThyClicked*150, imageWidth + redThyClicked*150);
+    thylacine.resize(imageHeight +redThyClicked*150, imageWidth + redThyClicked*150);
+    ghost.resize(imageHeight +redThyClicked*150, imageWidth + redThyClicked*150);
+    offset =  imageHeight +redThyClicked*150 /2; 
+    randomX = random(-1* offset, maxX-150);
+    randomY = random(-1* offset, maxY-150);
+    console.log(-1* offset)
     if(score >=5) {
-      flash = "red";
+      flash = "blue";
     }
     }
   else{
@@ -144,7 +126,7 @@ function mouseClicked() {
     //If score is 5
     if(score == 7){
       randomX = -2000;
-      button.show();
+      window.location.href = "poem.html"
 
     }
     else{
