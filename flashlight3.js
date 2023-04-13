@@ -98,7 +98,7 @@ function buttonChangeHover(){
 }
 
 function link(){
-  window.location.pathname = '/Thylacine-ARG/poem.html';
+  window.location.pathname = 'poem.html';
 }
 function mouseClicked() {
   //changes flash colour to white to simulate camera flash
