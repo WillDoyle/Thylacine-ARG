@@ -5,7 +5,13 @@ let font;
 let ghost;
 let bg;
 let thylacine;
+let op = 255;
 var hitbox; 
+
+let startTime;
+const duration = 8; // fade duration in seconds
+const curveExponent = 1; // controls the rate of the fade
+
 //radius
 let r = 300;
 //ghost location
@@ -15,6 +21,7 @@ var maxX
 var maxY
 var randomX = 0;
 var randomY = 0;
+
 
 //distance for flashlight circle and dg for distance to ghost
 let d;
@@ -32,6 +39,7 @@ function preload() {
 }
 
 function setup() {
+  startTime = millis();
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('flashlight-container');
   frameRate(60);
@@ -183,11 +191,29 @@ function lightsquare(x, y) {
 
     //convert score to string, dont know if this is needed but i thought it would be good form
     let strSC = String(score);
+    
+
+    
+
     fill("0");
     textFont(font)
     textSize(20);
     
     text("Tap 5 Thylacines", 10, windowHeight - 40);
     text("Thylacines Found: "+strSC, 10, windowHeight - 10);
+
+
+    const elapsedTime = (millis() - startTime) / 1000; // elapsed time in seconds
+    if (elapsedTime > duration) {
+      return; // fade is complete, do nothing
+    }
+    const opacity = 255 * pow(1 - elapsedTime/duration, curveExponent);
+
+
+    fill(255, 255, 0, opacity);
+      text('Save the Thylacine from \n             Extinction!', windowWidth / 2 - 150, 50);
+      
+
+
+      }    
     
-  }
