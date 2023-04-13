@@ -35,6 +35,7 @@ function preload() {
 
   thylacine = loadImage("images/capthy.png");
   finalThy = loadImage("images/thefinalthy.png");
+  overlay = loadImage("images/OVERLAY.jpg");
 }
 
 function setup() {
@@ -42,7 +43,7 @@ function setup() {
   canvas.parent('flashlight-container');
   frameRate(60);
 
-  button = createButton('Proceed with caution');
+  button = createButton('Reap your reward');
   button.position(windowWidth / 2-140, windowHeight / 2);
   console.log(windowWidth / 2.2);
   console.log(windowHeight / 2.2);
@@ -54,7 +55,7 @@ function setup() {
   button.style('font-size','36px');
 
 
-  button.style('font-family','Parisienne','cursive');
+  button.style('font-family','Courgette','cursive');
   button.mousePressed(link);
 
   //Sound 
@@ -71,9 +72,10 @@ function setup() {
       if (r <= 250) {
         imageHeight = 200;
         imageWidth = 200;
-        ghost = thylacine;
+        ghost = finalThy;
         finalThy.resize(imageWidth, imageHeight);
         thylacine.resize(imageWidth,imageHeight);
+        overlay.resize(windowWidth, windowHeight);
         ghost.resize(imageWidth, imageHeight);
       }
     hitbox = r;
@@ -125,7 +127,7 @@ function mouseClicked() {
     }
   else{
     
-    ghost = thylacine;
+    ghost = finalThy;
           
   }
     //If score is 5
@@ -171,6 +173,7 @@ function flashlight(x, y) {
       if (d <= threshold) {
         lightsquare(xPos, yPos);
       } else {
+
         fill(flash);
         stroke(flash);
         square(xPos - 2.5, yPos - 2.5, 5);
@@ -186,7 +189,12 @@ function flashlight(x, y) {
   rect(0, mouseY - threshold, mouseX - threshold, threshold * 2); // Left rectangle
   rect(mouseX + threshold, mouseY - threshold, windowWidth - (mouseX + threshold), threshold * 2); // Right rectangle
 
-  flash = "black";
+  flash = "red";
+  image(overlay, 0, 0, windowWidth, windowHeight);
+
+  tint(255, 110);
+ 
+
 }
 
 function lightsquare(x, y) {
@@ -203,6 +211,7 @@ function lightsquare(x, y) {
   fill(pixColor);
   stroke(pixColor);
   square(x, y, 6);
+  
 }
 
   
@@ -227,14 +236,15 @@ function lightsquare(x, y) {
     //Change instructions text when score is greater than or equal 4
     if (score >= 4){
 
-      text("Tap The Final Thylacine", 10, windowHeight - 40);
+      text("Exterminate The Final \nThylacine", 10, windowHeight - 60);
+      fill(0);
     }
     else{
       
-      text("Tap 5 Thylacines", 10, windowHeight - 40);
+      text("Destroy 5 Thylacines", 10, windowHeight - 40);
     }
     
-    text("v1.0 - Thylacines Captured: "+strSC, 10, windowHeight - 10);
+    text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
     
   }
 

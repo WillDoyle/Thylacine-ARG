@@ -40,7 +40,7 @@ function setup() {
   canvas.parent('flashlight-container');
   frameRate(60);
 
-  button = createButton('Proceed with caution');
+  button = createButton('Give it yer best...');
   button.position(windowWidth / 2-140, windowHeight / 2);
   console.log(windowWidth / 2.2);
   console.log(windowHeight / 2.2);
@@ -52,7 +52,7 @@ function setup() {
   button.style('font-size','36px');
 
 
-  button.style('font-family','Parisienne','cursive');
+  button.style('font-family','Courgette','cursive');
   button.mousePressed(link);
 
   //Sound 
@@ -232,7 +232,7 @@ function lightsquare(x, y) {
       text("Tap 5 Thylacines", 10, windowHeight - 40);
     }
     
-    text("v1.0 - Thylacines Captured: "+strSC, 10, windowHeight - 10);
+    text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
     
   }
 
