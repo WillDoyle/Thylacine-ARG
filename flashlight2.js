@@ -7,7 +7,14 @@ let bg;
 let thylacine;
 let finalThy;
 let bgAudio;
-var hitbox; 
+var hitbox;
+
+
+let startTime;
+const duration = 8; // fade duration in seconds
+const curveExponent = 1; // controls the rate of the fade
+
+
 //radius
 let r = 300;
 //ghost location
@@ -38,6 +45,7 @@ function preload() {
 }
 
 function setup() {
+  startTime = millis();
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('flashlight-container');
   frameRate(60);
@@ -237,6 +245,19 @@ function lightsquare(x, y) {
     
     text("Thylacines Captured: "+strSC, 10, windowHeight - 10);
     
+
+    const elapsedTime = (millis() - startTime) / 1000; // elapsed time in seconds
+    if (elapsedTime > duration) {
+      return; // fade is complete, do nothing
+    }
+    const opacity = 255 * pow(1 - elapsedTime/duration, curveExponent);
+
+
+    fill(255, 100, 0, opacity);
+    stroke('black');
+      text('Cage the Thylacine from \n             Extinction!', windowWidth / 2 - 150, 50);
+      
+
   }
 
   
