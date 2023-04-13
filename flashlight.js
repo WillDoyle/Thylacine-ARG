@@ -53,7 +53,7 @@ function setup() {
   button.mouseOut(buttonChangeOut);
   button.style('font-size','36px');
 
-  button.style('font-family','Parisienne','cursive');
+  button.style('font-family','Courgette','cursive');
   button.mousePressed(link);
   r = windowWidth*0.40
   
