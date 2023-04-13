@@ -33,9 +33,11 @@ function preload() {
   bg = loadImage("images/thybg.gif");
 
 
-  thylacine = loadImage("images/capthy.png");
+  thylacine = loadImage("images/thefinalthy.png");
   finalThy = loadImage("images/thefinalthy.png");
   overlay = loadImage("images/OVERLAY.jpg");
+  soundFormats('ogg');
+  splat = loadSound('sounds/splat.ogg');
 }
 
 function setup() {
@@ -114,6 +116,7 @@ function mouseClicked() {
 
     //add 1 to score
     score++;
+    splat.play();
 
       if(score >= 4){
         //bgAudio.setVolume(0.1);
