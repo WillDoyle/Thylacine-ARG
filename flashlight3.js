@@ -1,4 +1,4 @@
-
+document.addEventListener('touchstart', {})
 //WARNING: i think the frames may be bad on laptops
 //images and font
 let font;

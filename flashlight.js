@@ -1,4 +1,5 @@
 
+
 //WARNING: i think the frames may be bad on laptops
 //images and font
 let font;
@@ -45,7 +46,7 @@ function setup() {
   frameRate(60);
 
   button = createButton('Proceed with caution');
-  button.position(windowWidth / 2 - 150, windowHeight / 2);
+  button.position(windowWidth / 2 - 170, windowHeight / 2);
   console.log(windowWidth / 2.2);
   console.log(windowHeight / 2.2);
   button.hide();

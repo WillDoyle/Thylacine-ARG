@@ -1,4 +1,4 @@
-
+document.addEventListener('touchstart', {})
 //WARNING: i think the frames may be bad on laptops
 //images and font
 let font;
@@ -51,7 +51,7 @@ function setup() {
   frameRate(60);
 
   button = createButton('Give it yer best...');
-  button.position(windowWidth / 2-140, windowHeight / 2);
+  button.position(windowWidth / 2 - 140, windowHeight / 2);
   console.log(windowWidth / 2.2);
   console.log(windowHeight / 2.2);
 
