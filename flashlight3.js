@@ -44,8 +44,8 @@ function preload() {
   thylacine = loadImage("images/thefinalthy.png");
   finalThy = loadImage("images/thefinalthy.png");
   overlay = loadImage("images/OVERLAY.jpg");
-  soundFormats('ogg');
-  splat = loadSound('sounds/splat.ogg');
+  //soundFormats('ogg');
+  //splat = loadSound('sounds/splat.ogg');
 }
 
 function setup() {
