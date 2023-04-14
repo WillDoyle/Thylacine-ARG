@@ -98,7 +98,7 @@ function mouseClicked() {
 
     //add 1 to score
     score++;
-    splat.play();
+    //splat.play();
 
       if(score >= 4){
         //bgAudio.setVolume(0.1);
