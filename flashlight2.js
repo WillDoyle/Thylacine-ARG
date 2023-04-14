@@ -37,7 +37,7 @@ let flash = "black";
 var score = 0;
 //preloading images and font
 function preload() {
-  font = loadFont("images/minecraft_font.ttf")
+  font = loadFont("images/minecraft_font.ttf");
   bg = loadImage("images/thybg.gif");
   thylacine = loadImage("images/capthy.png");
   finalThy = loadImage("images/thefinalthy.png");
@@ -118,7 +118,7 @@ function mouseClicked() {
 
     //add 1 to score
     score++;
-    splat.play();
+    //splat.play();
 
       if(score >= 4){
         //bgAudio.setVolume(0.1);
