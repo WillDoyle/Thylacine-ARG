@@ -41,8 +41,8 @@ function preload() {
   bg = loadImage("images/thybg.gif");
   thylacine = loadImage("images/capthy.png");
   finalThy = loadImage("images/thefinalthy.png");
-  //  soundFormats('ogg');
-  //  splat = loadSound('sounds/splat.ogg');
+  soundFormats('mp3');
+  splat = loadSound('sounds/splat.mp3');
 }
 
 function setup() {
